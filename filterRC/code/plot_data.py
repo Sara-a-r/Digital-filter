@@ -3,16 +3,19 @@ import pylab as pyl
 import matplotlib.pyplot as plt
 
 # load data
-t, V = pyl.loadtxt('../data/2Hz500_2.txt',unpack=True)  #t is given in microseconds
+_, V = pyl.loadtxt('../data/2Hz500_2.txt',unpack=True)  #t is given in microseconds
                                                      #V is given in bit
 
 #data 'reduction'
-t = t *1e-6         #convert time in seconds
+
+#discrete time to put on the x axis
+ts = 2/1000     #sampling time (seconds)
+t_max = len(V)
+t = np.arange(0,len(V))*ts
+
 V = V * 5 / 1023    #convert V in Volt
 V = V[15:]          #cut first data
 t = t[15:]          #cut first data
-print(t[52]-t[51])
-
 
 # let's see data: scatter plot
 plt.rc('font',size=10)
