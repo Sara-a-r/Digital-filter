@@ -32,4 +32,4 @@ arduino.close()
 matrix_data = (np.array(list_data)).reshape(n_data, 2)
 
 # save arduino data in a file txt
-np.savetxt('../data/2Hz500_2.txt',matrix_data, fmt='%d')
+np.savetxt('../data/10Hz500_3.txt',matrix_data, fmt='%d')
